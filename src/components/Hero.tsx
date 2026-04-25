@@ -322,7 +322,7 @@ export function Hero() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-12 gap-3 lg:gap-3 grid-auto-rows-min">
       <NameCard />
-      <PhotoCard />
+      <QuoteCard />
       <YrsCard />
       <LocationCard />
       {metrics.map((m, i) => (
@@ -330,7 +330,7 @@ export function Hero() {
       ))}
       <SkillsCard />
       <RoleCard />
-      <QuoteCard />
+      <PhotoCard />
       <StackMarquee />
     </div>
   );
