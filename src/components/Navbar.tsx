@@ -1,6 +1,6 @@
 import { navLinks } from "../data/constants";
 
-export function Navbar() {
+export function Navbar({ onOpenResume }: { onOpenResume: () => void }) {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 py-[1.1rem]"
@@ -44,13 +44,22 @@ export function Navbar() {
         ))}
       </div>
 
-      <a
-        href="mailto:ansarinakhshab52@gmail.com"
-        className="font-mono text-[10px] tracking-[0.08em] px-5 py-2 bg-lime text-ink rounded-full font-medium transition-colors duration-200 hover:bg-cream2"
-        aria-label="Hire Nakhshab"
-      >
-        Hire Me →
-      </a>
+      <div className="flex gap-2 items-center">
+        <button
+          onClick={onOpenResume}
+          className="font-mono text-[10px] tracking-[0.08em] px-4 md:px-5 py-2 bg-ink text-white rounded-full font-medium transition-all duration-200 hover:bg-violet"
+          aria-label="Download Resume"
+        >
+          Resume ↓
+        </button>
+        <a
+          href="mailto:ansarinakhshab52@gmail.com"
+          className="font-mono text-[10px] tracking-[0.08em] px-4 md:px-5 py-2 bg-lime text-ink rounded-full font-medium transition-colors duration-200 hover:bg-cream2"
+          aria-label="Hire Nakhshab"
+        >
+          Hire Me →
+        </a>
+      </div>
     </nav>
   );
 }
