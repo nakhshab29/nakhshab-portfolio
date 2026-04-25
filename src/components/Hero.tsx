@@ -6,7 +6,7 @@ import { metrics, skills, stackItems } from "../data/constants";
 function PhotoCard() {
   return (
     <RevealCard
-      className="col-span-2 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px] aspect-[4/5] md:aspect-auto"
+      className="col-span-1 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px] aspect-[4/5] md:aspect-auto"
       delay={0.05}
     >
       <motion.img
