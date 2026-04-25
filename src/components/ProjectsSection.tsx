@@ -8,11 +8,9 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   return (
     <RevealCard delay={index * 0.1}>
       <motion.article
-        className="rounded-[20px] flex flex-col justify-between relative overflow-hidden"
+        className="project-card-inner rounded-[20px] flex flex-col justify-between relative overflow-hidden"
         style={{
           background: bg,
-          padding: "2.75rem",
-          minHeight: "320px",
         }}
         whileHover={{ y: -4, boxShadow: "0 24px 70px rgba(11,10,26,0.18)" }}
         transition={{ duration: 0.25 }}

@@ -22,12 +22,10 @@ export function ContactSection() {
       >
         {/* Main CTA card */}
         <RevealCard
-          className="col-span-1 lg:col-span-2 relative overflow-hidden rounded-[20px]"
+          className="col-span-1 lg:col-span-2 card-contact-cta relative overflow-hidden rounded-[20px]"
           style={{
-            padding: "3rem",
             background: "#0b0a1a",
             color: "#f0edff",
-            minHeight: "300px",
           }}
         >
           {/* Orbs */}

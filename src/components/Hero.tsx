@@ -6,15 +6,13 @@ import { metrics, skills, stackItems } from "../data/constants";
 function PhotoCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-4 lg:col-span-2 relative overflow-hidden rounded-[20px]"
-      style={{ minHeight: "340px" }}
+      className="col-span-2 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px]"
       delay={0.05}
     >
       <motion.img
         src="/nakhshab.jpg"
         alt="Nakhshab Ansari — Senior Software Engineer"
         className="w-full h-full object-cover object-top absolute inset-0"
-        style={{ minHeight: "340px" }}
         whileHover={{ scale: 1.04 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       />
@@ -42,10 +40,8 @@ function PhotoCard() {
 function NameCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-12 lg:col-span-5 relative overflow-hidden rounded-[20px] flex flex-col justify-between"
+      className="col-span-2 md:col-span-12 lg:col-span-5 card-name relative overflow-hidden rounded-[20px] flex flex-col justify-between"
       style={{
-        minHeight: "340px",
-        padding: "3rem 3rem 2.5rem",
         background: "#0b0a1a",
         color: "#f0edff",
       }}
@@ -114,11 +110,10 @@ function NameCard() {
 function YrsCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-4 lg:col-span-2 rounded-[20px] flex flex-col justify-between bg-lime text-ink"
-      style={{ padding: "2rem 1.5rem", minHeight: "160px" }}
+      className="col-span-1 md:col-span-4 lg:col-span-2 card-stat rounded-[20px] flex flex-col justify-between bg-lime text-ink"
       delay={0.1}
     >
-      <div className="font-unbounded text-[3.5rem] font-black leading-none tracking-[-0.04em]">
+      <div className="font-unbounded font-black leading-none tracking-[-0.04em] text-[2rem] md:text-[3.5rem]">
         4<sup className="text-[1.2rem] font-normal align-super">+</sup>
       </div>
       <div className="font-mono text-[9px] tracking-[0.15em] uppercase opacity-55">
@@ -134,13 +129,12 @@ function YrsCard() {
 function LocationCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[20px] flex flex-col justify-between bg-sky text-ink"
-      style={{ padding: "2rem", minHeight: "160px" }}
+      className="col-span-1 md:col-span-4 lg:col-span-3 card-stat rounded-[20px] flex flex-col justify-between bg-sky text-ink"
       delay={0.12}
     >
       <div className="text-[2rem] mb-2" role="img" aria-label="Location pin">📍</div>
       <div>
-        <div className="font-unbounded text-[1.1rem] font-bold leading-[1.1] tracking-[-0.02em]">
+        <div className="font-unbounded text-[0.85rem] md:text-[1.1rem] font-bold leading-[1.1] tracking-[-0.02em]">
           Mumbai,
           <br />
           India
@@ -178,13 +172,13 @@ function MetricCard({
 
   return (
     <RevealCard
-      className="col-span-12 md:col-span-4 lg:col-span-4 rounded-[20px] flex flex-col justify-between"
-      style={{ padding: "2rem", minHeight: "160px", background: t.bg }}
+      className="col-span-2 md:col-span-4 lg:col-span-4 card-metric rounded-[20px] flex flex-col justify-between"
+      style={{ background: t.bg }}
       delay={delay}
     >
       <div
-        className="font-unbounded font-black leading-none tracking-[-0.04em]"
-        style={{ fontSize: "2.8rem", color: t.color }}
+        className="metric-num font-unbounded font-black leading-none tracking-[-0.04em]"
+        style={{ color: t.color }}
       >
         {num}
         <sup
@@ -213,8 +207,7 @@ function MetricCard({
 function SkillsCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-12 lg:col-span-5 rounded-[20px] bg-white text-ink"
-      style={{ padding: "2.5rem", minHeight: "200px" }}
+      className="col-span-2 md:col-span-12 lg:col-span-5 card-skills rounded-[20px] bg-white text-ink"
       delay={0.1}
     >
       <div className="font-mono text-[9px] tracking-[0.2em] uppercase opacity-50 mb-5">
@@ -252,16 +245,14 @@ function SkillsCard() {
 function RoleCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-6 lg:col-span-4 rounded-[20px] flex flex-col justify-between"
+      className="col-span-2 md:col-span-6 lg:col-span-4 card-role-quote rounded-[20px] flex flex-col justify-between"
       style={{
-        padding: "2.5rem",
-        minHeight: "200px",
         background: "#fffbe8",
         color: "#0b0a1a",
       }}
       delay={0.05}
     >
-      <div className="font-unbounded text-[1rem] font-bold leading-[1.3] tracking-[-0.01em]">
+      <div className="font-unbounded text-[0.9rem] md:text-[1rem] font-bold leading-[1.3] tracking-[-0.01em]">
         Building systems
         <br />
         that scale.
@@ -278,17 +269,15 @@ function RoleCard() {
 function QuoteCard() {
   return (
     <RevealCard
-      className="col-span-12 md:col-span-6 lg:col-span-3 rounded-[20px] flex items-center"
+      className="col-span-2 md:col-span-6 lg:col-span-3 card-role-quote rounded-[20px] flex items-center"
       style={{
-        padding: "2.5rem",
-        minHeight: "200px",
         background: "#0b0a1a",
       }}
       delay={0.1}
     >
       <blockquote
-        className="font-unbounded font-bold leading-[1.3] tracking-[-0.01em]"
-        style={{ fontSize: "1.05rem", color: "#f0edff" }}
+        className="font-unbounded font-bold leading-[1.3] tracking-[-0.01em] text-[0.9rem] md:text-[1.05rem]"
+        style={{ color: "#f0edff" }}
       >
         Ship code that works.{" "}
         <em className="not-italic font-light" style={{ color: "#c8ff00" }}>
@@ -333,12 +322,22 @@ export function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-3 lg:gap-3 grid-auto-rows-min">
       <NameCard />
-      <YrsCard />
-      <LocationCard />
+      
+      {/* Wrapper for side-by-side stats on mobile */}
+      <div className="flex md:contents gap-3">
+        <YrsCard />
+        <LocationCard />
+      </div>
+
       <PhotoCard />
-      {metrics.map((m, i) => (
-        <MetricCard key={m.num} {...m} delay={i * 0.05} />
-      ))}
+
+      {/* Wrapper for metric cards grid on mobile */}
+      <div className="grid grid-cols-2 md:contents gap-3">
+        {metrics.map((m, i) => (
+          <MetricCard key={m.num} {...m} delay={i * 0.05} />
+        ))}
+      </div>
+
       <SkillsCard />
       <RoleCard />
       <QuoteCard />

@@ -6,9 +6,8 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
   return (
     <RevealCard
       delay={index * 0.1}
-      className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-8 items-start"
+      className="exp-card-inner grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-8 items-start"
       style={{
-        padding: "2.5rem",
         background: "#fff",
         borderRadius: 20,
         border: exp.isCurrent ? "2px solid #4a1fff" : "2px solid transparent",
