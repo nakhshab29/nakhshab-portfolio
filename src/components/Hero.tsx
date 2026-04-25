@@ -92,41 +92,43 @@ function NameCard() {
         </div>
         <h1
           className="font-unbounded font-black leading-[0.95] tracking-[-0.03em]"
-          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.2rem)" }}
         >
-          <div className="flex flex-wrap">
-            {"Nakhshab".split("").map((char, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 40, rotateX: -90 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: i * 0.04,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-                style={{ display: "inline-block", transformOrigin: "bottom" }}
-              >
-                {char}
-              </motion.span>
-            ))}
-            <span className="w-full h-0 md:hidden" />
-            <span className="inline-block w-[0.3em]" />
-            {"Ansari".split("").map((char, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 40, rotateX: -90 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.4 + i * 0.04,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-                style={{ display: "inline-block", transformOrigin: "bottom", color: "#c8ff00" }}
-              >
-                {char}
-              </motion.span>
-            ))}
+          <div className="flex flex-wrap items-end gap-x-[0.3em]">
+            <div className="flex whitespace-nowrap">
+              {"Nakhshab".split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 40, rotateX: -90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: i * 0.04,
+                    ease: [0.215, 0.61, 0.355, 1],
+                  }}
+                  style={{ display: "inline-block", transformOrigin: "bottom" }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </div>
+            <div className="flex whitespace-nowrap text-lime">
+              {"Ansari".split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 40, rotateX: -90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.4 + i * 0.04,
+                    ease: [0.215, 0.61, 0.355, 1],
+                  }}
+                  style={{ display: "inline-block", transformOrigin: "bottom" }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </div>
           </div>
         </h1>
       </div>
@@ -177,11 +179,19 @@ function YrsCard() {
 function LocationCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-4 lg:col-span-3 md:order-4 card-stat rounded-[20px] flex flex-col justify-between bg-sky text-ink"
+      className="col-span-1 md:col-span-4 lg:col-span-3 md:order-4 card-stat rounded-[20px] flex flex-col justify-between bg-sky text-ink relative overflow-hidden"
       delay={0.12}
     >
-      <div className="text-[2rem] mb-2" role="img" aria-label="Location pin">📍</div>
-      <div>
+      <motion.img
+        src="/mumbai.png"
+        alt="Gateway of India, Mumbai"
+        className="w-full h-full object-cover absolute inset-0 opacity-40 mix-blend-overlay"
+        initial={{ scale: 1.2 }}
+        whileInView={{ scale: 1 }}
+        transition={{ duration: 1.5 }}
+      />
+      <div className="relative z-10 text-[2rem] mb-2" role="img" aria-label="Location pin">📍</div>
+      <div className="relative z-10">
         <div className="font-unbounded text-[0.85rem] md:text-[1.1rem] font-bold leading-[1.1] tracking-[-0.02em]">
           Mumbai,
           <br />
