@@ -179,25 +179,28 @@ function YrsCard() {
 function LocationCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-4 lg:col-span-3 md:order-4 card-stat rounded-[20px] flex flex-col justify-between bg-sky text-ink relative overflow-hidden"
+      className="col-span-1 md:col-span-4 lg:col-span-3 md:order-4 card-stat rounded-[20px] flex flex-col justify-between bg-black text-white relative overflow-hidden"
       delay={0.12}
     >
       <motion.img
         src="/mumbai.png"
         alt="Gateway of India, Mumbai"
-        className="w-full h-full object-cover absolute inset-0 opacity-90 mix-blend-soft-light grayscale contrast-125"
+        className="w-full h-full object-cover absolute inset-0 opacity-100"
         initial={{ scale: 1.2 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 1.5 }}
       />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-[5]" />
+      
       <div className="relative z-10 text-[2rem] mb-2" role="img" aria-label="Location pin">📍</div>
-      <div className="relative z-10">
+      <div className="relative z-10 text-white">
         <div className="font-unbounded text-[0.85rem] md:text-[1.1rem] font-bold leading-[1.1] tracking-[-0.02em]">
           Mumbai,
           <br />
           India
         </div>
-        <div className="font-mono text-[9px] tracking-[0.1em] uppercase opacity-50 mt-1">
+        <div className="font-mono text-[9px] tracking-[0.1em] uppercase opacity-80 mt-1">
           Remote friendly
         </div>
       </div>
