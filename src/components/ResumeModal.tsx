@@ -113,14 +113,14 @@ export function ResumeModal({
               </h2>
               
               <p className="font-light text-sm text-ink opacity-60 mb-8 leading-relaxed">
-                Enter your work email below. I'll securely send you the PDF immediately, and I'll know who to follow up with!
+                Enter your email to download the resume.
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <input
                   type="email"
                   required
-                  placeholder="name@company.com"
+                  placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={status !== "idle"}

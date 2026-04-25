@@ -6,6 +6,7 @@ import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { ResumeModal } from "./components/ResumeModal";
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
@@ -21,6 +22,7 @@ function App() {
         <Footer />
       </main>
       <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
+      <Analytics />
     </>
   );
 }

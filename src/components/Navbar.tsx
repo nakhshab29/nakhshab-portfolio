@@ -50,7 +50,7 @@ export function Navbar({ onOpenResume }: { onOpenResume: () => void }) {
           className="font-mono text-[10px] tracking-[0.08em] px-4 md:px-5 py-2 bg-ink text-white rounded-full font-medium transition-all duration-200 hover:bg-violet"
           aria-label="Download Resume"
         >
-          Resume ↓
+          Download Resume ↓
         </button>
         <a
           href="mailto:ansarinakhshab52@gmail.com"
