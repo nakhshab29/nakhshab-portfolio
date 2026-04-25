@@ -20,6 +20,7 @@ export function RevealCard({ children, className = "", delay = 0, style }: Props
       style={style}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -4, scale: 1.01 }}
       viewport={{ once: true, amount: 0.06 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay }}
     >

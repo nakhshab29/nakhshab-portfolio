@@ -46,22 +46,40 @@ function NameCard() {
         color: "#f0edff",
       }}
     >
-      {/* Gradient orbs */}
-      <span
+      {/* Animated Gradient orbs */}
+      <motion.span
         className="absolute pointer-events-none"
         style={{
           top: -60, right: -60, width: 280, height: 280,
           background: "radial-gradient(circle,rgba(74,31,255,0.5) 0%,transparent 70%)",
           borderRadius: "50%",
         }}
+        animate={{
+          x: [0, 20, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
         aria-hidden
       />
-      <span
+      <motion.span
         className="absolute pointer-events-none"
         style={{
           bottom: -80, left: "40%", width: 240, height: 240,
           background: "radial-gradient(circle,rgba(255,79,55,0.25) 0%,transparent 70%)",
           borderRadius: "50%",
+        }}
+        animate={{
+          x: [0, -30, 0],
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
         }}
         aria-hidden
       />
