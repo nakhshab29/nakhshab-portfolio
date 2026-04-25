@@ -86,18 +86,48 @@ function NameCard() {
 
       <div className="relative z-10">
         <div
-          className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6"
-          style={{ color: "rgba(240,237,255,0.4)" }}
+          className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6 opacity-50"
         >
           // Senior Software Engineer
         </div>
         <h1
           className="font-unbounded font-black leading-[0.95] tracking-[-0.03em]"
-          style={{ fontSize: "clamp(2.2rem,4vw,3.8rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
         >
-          Nakhshab
-          <br />
-          <span style={{ color: "#c8ff00" }}>Ansari</span>
+          <div className="flex flex-wrap">
+            {"Nakhshab".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 40, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: i * 0.04,
+                  ease: [0.215, 0.61, 0.355, 1],
+                }}
+                style={{ display: "inline-block", transformOrigin: "bottom" }}
+              >
+                {char}
+              </motion.span>
+            ))}
+            <span className="w-full h-0 md:hidden" />
+            <span className="inline-block w-[0.3em]" />
+            {"Ansari".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 40, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.4 + i * 0.04,
+                  ease: [0.215, 0.61, 0.355, 1],
+                }}
+                style={{ display: "inline-block", transformOrigin: "bottom", color: "#c8ff00" }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
         </h1>
       </div>
 
