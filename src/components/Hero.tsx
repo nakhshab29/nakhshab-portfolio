@@ -6,7 +6,7 @@ import { metrics, skills, stackItems } from "../data/constants";
 function PhotoCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px]"
+      className="col-span-1 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px] aspect-[4/5] md:aspect-auto"
       delay={0.05}
     >
       <motion.img
@@ -321,8 +321,8 @@ function StackMarquee() {
 export function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-3 lg:gap-3 grid-auto-rows-min">
-      <NameCard />
       <PhotoCard />
+      <NameCard />
       
       {/* Wrapper for side-by-side stats on mobile */}
       <div className="flex md:contents gap-3">

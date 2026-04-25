@@ -107,7 +107,7 @@
 }
 
 /* Photo card */
-.card-photo { min-height: 420px; }
+.card-photo { position: relative; }
 @media (min-width: 768px) { .card-photo { min-height: 340px; } }
 
 /* Small stat cards (yrs, location) */
