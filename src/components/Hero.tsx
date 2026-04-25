@@ -245,7 +245,7 @@ function SkillsCard() {
 function RoleCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-6 lg:col-span-4 card-role-quote rounded-[20px] flex flex-col justify-between"
+      className="col-span-2 md:col-span-6 lg:col-span-4 card-role-quote rounded-[20px] flex flex-col justify-between"
       style={{
         background: "#fffbe8",
         color: "#0b0a1a",
