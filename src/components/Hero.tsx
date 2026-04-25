@@ -6,7 +6,7 @@ import { metrics, skills, stackItems } from "../data/constants";
 function PhotoCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px] aspect-[4/5] md:aspect-auto"
+      className="col-span-2 md:col-span-4 lg:col-span-2 card-photo relative overflow-hidden rounded-[20px] aspect-[4/5] md:aspect-auto"
       delay={0.05}
     >
       <motion.img
@@ -40,7 +40,7 @@ function PhotoCard() {
 function NameCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-12 lg:col-span-5 card-name relative overflow-hidden rounded-[20px] flex flex-col justify-between"
+      className="col-span-2 md:col-span-12 lg:col-span-5 card-name relative overflow-hidden rounded-[20px] flex flex-col justify-between"
       style={{
         background: "#0b0a1a",
         color: "#f0edff",
@@ -110,7 +110,7 @@ function NameCard() {
 function YrsCard() {
   return (
     <RevealCard
-      className="flex-1 md:col-span-4 lg:col-span-2 card-stat rounded-[20px] flex flex-col justify-between bg-lime text-ink"
+      className="col-span-1 md:col-span-4 lg:col-span-2 card-stat rounded-[20px] flex flex-col justify-between bg-lime text-ink"
       delay={0.1}
     >
       <div className="font-unbounded font-black leading-none tracking-[-0.04em] text-[2rem] md:text-[3.5rem]">
@@ -129,7 +129,7 @@ function YrsCard() {
 function LocationCard() {
   return (
     <RevealCard
-      className="flex-1 md:col-span-4 lg:col-span-3 card-stat rounded-[20px] flex flex-col justify-between bg-sky text-ink"
+      className="col-span-1 md:col-span-4 lg:col-span-3 card-stat rounded-[20px] flex flex-col justify-between bg-sky text-ink"
       delay={0.12}
     >
       <div className="text-[2rem] mb-2" role="img" aria-label="Location pin">📍</div>
@@ -172,7 +172,7 @@ function MetricCard({
 
   return (
     <RevealCard
-      className="w-full md:col-span-4 lg:col-span-4 card-metric rounded-[20px] flex flex-col justify-between"
+      className="col-span-1 md:col-span-4 lg:col-span-4 card-metric rounded-[20px] flex flex-col justify-between"
       style={{ background: t.bg }}
       delay={delay}
     >
@@ -207,7 +207,7 @@ function MetricCard({
 function SkillsCard() {
   return (
     <RevealCard
-      className="col-span-1 md:col-span-12 lg:col-span-5 card-skills rounded-[20px] bg-white text-ink"
+      className="col-span-2 md:col-span-12 lg:col-span-5 card-skills rounded-[20px] bg-white text-ink"
       delay={0.1}
     >
       <div className="font-mono text-[9px] tracking-[0.2em] uppercase opacity-50 mb-5">
@@ -294,7 +294,7 @@ function StackMarquee() {
   const doubled = [...stackItems, ...stackItems];
   return (
     <RevealCard
-      className="col-span-1 md:col-span-12 rounded-[20px] bg-white flex items-center gap-4 overflow-hidden"
+      className="col-span-2 md:col-span-12 rounded-[20px] bg-white flex items-center gap-4 overflow-hidden"
       style={{ padding: "1.25rem 2rem" }}
     >
       <span className="font-mono text-[9px] tracking-[0.15em] uppercase opacity-40 whitespace-nowrap flex-shrink-0">
@@ -320,23 +320,14 @@ function StackMarquee() {
 // ─── Hero/Bento Grid ───
 export function Hero() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-3 lg:gap-3 grid-auto-rows-min">
-      <PhotoCard />
+    <div className="grid grid-cols-2 md:grid-cols-12 gap-3 lg:gap-3 grid-auto-rows-min">
       <NameCard />
-      
-      {/* Wrapper for side-by-side stats on mobile */}
-      <div className="flex md:contents gap-3">
-        <YrsCard />
-        <LocationCard />
-      </div>
-
-      {/* Wrapper for metric cards grid on mobile */}
-      <div className="grid grid-cols-2 md:contents gap-3">
-        {metrics.map((m, i) => (
-          <MetricCard key={m.num} {...m} delay={i * 0.05} />
-        ))}
-      </div>
-
+      <PhotoCard />
+      <YrsCard />
+      <LocationCard />
+      {metrics.map((m, i) => (
+        <MetricCard key={m.num} {...m} delay={i * 0.05} />
+      ))}
       <SkillsCard />
       <RoleCard />
       <QuoteCard />
