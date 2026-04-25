@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f0edff;
+  --color-ink: #0b0a1a;
+  --color-violet: #4a1fff;
+  --color-violet-light: #7c5cff;
+  --color-coral: #ff4f37;
+  --color-lime: #c8ff00;
+  --color-lime-dark: #8ab800;
+  --color-sky: #d6f0ff;
+  --color-sky2: #b0dff7;
+  --color-cream: #fffbe8;
+  --color-cream2: #f5f0cc;
+  --color-card-dark: #0b0a1a;
+  --color-card-violet: #4a1fff;
+  --color-card-coral: #ff4f37;
+  --color-muted: #7a738c;
+  --color-border: rgba(11, 10, 26, 0.12);
+
+  --font-unbounded: 'Unbounded', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-bricolage: 'Bricolage Grotesque', sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-bricolage);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+}
+
+@layer components {
+  .page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: calc(4.5rem + 8px) 8px 8px;
+  }
+  @media (min-width: 1024px) {
+    .page {
+      padding: calc(5rem + 12px) 12px 12px;
+    }
+  }
+
+  .section {
+    padding: 3rem 0;
+    border-top: 1px solid rgba(11,10,26,0.12);
+  }
+  @media (min-width: 1024px) {
+    .section {
+      padding: 5rem 0;
+    }
+  }
+
+  /* Marquee animation */
+  .marquee-inner {
+    display: flex;
+    gap: 0.75rem;
+    animation: marquee-scroll 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  /* Pulse dot */
+  .avail-dot {
+    animation: avail-pulse 2s infinite;
+  }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes avail-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Responsive ── */
+
+
+
