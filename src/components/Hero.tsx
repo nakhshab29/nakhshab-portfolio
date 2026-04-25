@@ -185,7 +185,7 @@ function LocationCard() {
       <motion.img
         src="/mumbai.png"
         alt="Gateway of India, Mumbai"
-        className="w-full h-full object-cover absolute inset-0 opacity-40 mix-blend-overlay"
+        className="w-full h-full object-cover absolute inset-0 opacity-90 mix-blend-soft-light grayscale contrast-125"
         initial={{ scale: 1.2 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 1.5 }}
