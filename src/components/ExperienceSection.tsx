@@ -6,55 +6,83 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
   return (
     <RevealCard
       delay={index * 0.1}
-      className="exp-card-inner grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-8 items-start"
+      className="exp-card-inner relative overflow-hidden"
       style={{
         background: "#fff",
-        borderRadius: 20,
-        border: exp.isCurrent ? "2px solid #4a1fff" : "2px solid transparent",
+        borderRadius: 24,
+        padding: "2.5rem",
+        border: "1px solid rgba(11,10,26,0.05)",
       }}
     >
-      {/* Left — period + badge */}
-      <div>
-        <div className="font-mono text-[10px] tracking-[0.08em] mb-2" style={{ color: "#7a738c" }}>
-          {exp.period}
-        </div>
-        <span
-          className="inline-block font-mono text-[8px] tracking-[0.1em] uppercase px-[10px] py-1 rounded-full font-medium"
-          style={
-            exp.isCurrent
-              ? { background: "rgba(74,31,255,0.1)", color: "#4a1fff" }
-              : { background: "rgba(11,10,26,0.06)", color: "#7a738c" }
-          }
-        >
-          {exp.badge}
-        </span>
-      </div>
+      {/* Current role highlight glow */}
+      {exp.isCurrent && (
+        <div 
+          className="absolute top-0 right-0 w-32 h-32 blur-[60px] pointer-events-none opacity-20"
+          style={{ background: "radial-gradient(circle, #4a1fff 0%, transparent 70%)" }}
+        />
+      )}
 
-      {/* Mid — position, company, bullets */}
-      <div>
-        <div className="font-unbounded text-[1.05rem] font-bold tracking-[-0.02em] mb-1" style={{ color: "#0b0a1a" }}>
-          {exp.position}
+      <div className="grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-8 relative z-10">
+        {/* Left — Date and Badge */}
+        <div className="flex flex-col gap-3">
+          <div className="font-mono text-[11px] tracking-[0.1em] text-ink/40 uppercase">
+            {exp.period}
+          </div>
+          <div>
+            <span
+              className="inline-block font-mono text-[9px] tracking-[0.15em] uppercase px-3 py-1.5 rounded-full font-bold"
+              style={
+                exp.isCurrent
+                  ? { background: "#4a1fff", color: "#fff" }
+                  : { background: "rgba(11,10,26,0.06)", color: "#7a738c" }
+              }
+            >
+              {exp.badge}
+            </span>
+          </div>
         </div>
-        <div className="font-bricolage text-[13px] font-light mb-5" style={{ color: "#7a738c" }}>
-          {exp.company}
-        </div>
-        <ul className="flex flex-col gap-[0.4rem] list-none p-0">
-          {exp.bullets.map((b, i) => (
-            <li key={i} className="text-[13px] font-light leading-[1.6] pl-5 relative" style={{ color: "#7a738c" }}>
-              <span className="absolute left-0 top-[9px] w-[5px] h-[5px] rounded-full" style={{ background: "#4a1fff" }} aria-hidden />
-              {b}
-            </li>
-          ))}
-        </ul>
-      </div>
 
-      {/* Right — tech tags */}
-      <div className="hidden lg:flex flex-wrap gap-[5px] max-w-[130px] justify-end">
-        {exp.tags.map((tag) => (
-          <span key={tag} className="font-mono text-[9px] tracking-[0.06em] px-[9px] py-1 rounded-md" style={{ background: "rgba(11,10,26,0.06)", color: "#7a738c" }}>
-            {tag}
-          </span>
-        ))}
+        {/* Right — Content */}
+        <div>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 className="font-unbounded text-[1.2rem] md:text-[1.4rem] font-black tracking-tight text-ink mb-1">
+                {exp.position}
+              </h3>
+              <div className="font-mono text-[11px] tracking-[0.1em] uppercase opacity-50">
+                {exp.company}
+              </div>
+            </div>
+            
+            {/* Tech Tags */}
+            <div className="flex flex-wrap gap-2 md:justify-end max-w-[300px]">
+              {exp.tags.map((tag) => (
+                <span 
+                  key={tag} 
+                  className="font-mono text-[9px] tracking-[0.08em] px-2.5 py-1 rounded-md border border-ink/5 bg-ink/[0.02] text-ink/50"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <ul className="grid grid-cols-1 gap-4 list-none p-0">
+            {exp.bullets.map((b, i) => (
+              <li 
+                key={i} 
+                className="text-[14px] font-light leading-relaxed pl-6 relative text-ink/70"
+              >
+                <span 
+                  className="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full" 
+                  style={{ background: exp.isCurrent ? "#4a1fff" : "#cbd5e1" }} 
+                  aria-hidden 
+                />
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </RevealCard>
   );
