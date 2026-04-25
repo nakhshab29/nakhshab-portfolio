@@ -8,16 +8,16 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
       delay={index * 0.1}
       className="exp-card-inner relative overflow-hidden"
       style={{
-        background: "#fff",
+        background: "#0b0a1a",
         borderRadius: 24,
         padding: "2.5rem",
-        border: "1px solid rgba(11,10,26,0.05)",
+        border: "1px solid rgba(255,255,255,0.05)",
       }}
     >
       {/* Current role highlight glow */}
       {exp.isCurrent && (
         <div 
-          className="absolute top-0 right-0 w-32 h-32 blur-[60px] pointer-events-none opacity-20"
+          className="absolute top-0 right-0 w-48 h-48 blur-[80px] pointer-events-none opacity-30"
           style={{ background: "radial-gradient(circle, #4a1fff 0%, transparent 70%)" }}
         />
       )}
@@ -25,7 +25,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
       <div className="grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-8 relative z-10">
         {/* Left — Date and Badge */}
         <div className="flex flex-col gap-3">
-          <div className="font-mono text-[11px] tracking-[0.1em] text-ink/40 uppercase">
+          <div className="font-mono text-[11px] tracking-[0.1em] text-white/30 uppercase">
             {exp.period}
           </div>
           <div>
@@ -34,7 +34,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
               style={
                 exp.isCurrent
                   ? { background: "#4a1fff", color: "#fff" }
-                  : { background: "rgba(11,10,26,0.06)", color: "#7a738c" }
+                  : { background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.4)" }
               }
             >
               {exp.badge}
@@ -46,10 +46,10 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
         <div>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
-              <h3 className="font-unbounded text-[1.2rem] md:text-[1.4rem] font-black tracking-tight text-ink mb-1">
+              <h3 className="font-unbounded text-[1.2rem] md:text-[1.4rem] font-black tracking-tight text-white mb-1">
                 {exp.position}
               </h3>
-              <div className="font-mono text-[11px] tracking-[0.1em] uppercase opacity-50">
+              <div className="font-mono text-[11px] tracking-[0.1em] uppercase text-white/40">
                 {exp.company}
               </div>
             </div>
@@ -59,7 +59,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
               {exp.tags.map((tag) => (
                 <span 
                   key={tag} 
-                  className="font-mono text-[9px] tracking-[0.08em] px-2.5 py-1 rounded-md border border-ink/5 bg-ink/[0.02] text-ink/50"
+                  className="font-mono text-[9px] tracking-[0.08em] px-2.5 py-1 rounded-md border border-white/10 bg-white/[0.03] text-white/40"
                 >
                   {tag}
                 </span>
@@ -71,11 +71,11 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
             {exp.bullets.map((b, i) => (
               <li 
                 key={i} 
-                className="text-[14px] font-light leading-relaxed pl-6 relative text-ink/70"
+                className="text-[14px] font-light leading-relaxed pl-6 relative text-white/60"
               >
                 <span 
                   className="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full" 
-                  style={{ background: exp.isCurrent ? "#4a1fff" : "#cbd5e1" }} 
+                  style={{ background: exp.isCurrent ? "#4a1fff" : "rgba(255,255,255,0.2)" }} 
                   aria-hidden 
                 />
                 {b}
@@ -107,8 +107,8 @@ export function ExperienceSection() {
         {experiences.map((exp, i) => (
           <motion.div
             key={exp.company}
-            whileHover={{ y: -2, boxShadow: "0 16px 50px rgba(11,10,26,0.1)" }}
-            style={{ borderRadius: 20 }}
+            whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}
+            style={{ borderRadius: 24 }}
           >
             <ExperienceCard exp={exp} index={i} />
           </motion.div>
