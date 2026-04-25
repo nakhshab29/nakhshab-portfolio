@@ -322,14 +322,13 @@ export function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-3 lg:gap-3 grid-auto-rows-min">
       <NameCard />
+      <PhotoCard />
       
       {/* Wrapper for side-by-side stats on mobile */}
       <div className="flex md:contents gap-3">
         <YrsCard />
         <LocationCard />
       </div>
-
-      <PhotoCard />
 
       {/* Wrapper for metric cards grid on mobile */}
       <div className="grid grid-cols-2 md:contents gap-3">
